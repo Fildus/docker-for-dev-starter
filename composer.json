@@ -4,12 +4,13 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
-        "php": ">=7.2.5",
+        "php": ">=8",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "composer/package-versions-deprecated": "1.11.99.4",
         "doctrine/annotations": "^1.0",
         "doctrine/doctrine-bundle": "^2.4",
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
         "doctrine/doctrine-migrations-bundle": "^3.1",
         "doctrine/orm": "^2.9",
         "phpdocumentor/reflection-docblock": "^5.2",
@@ -39,18 +40,23 @@
         "symfony/twig-bundle": "5.3.*",
         "symfony/validator": "5.3.*",
         "symfony/web-link": "5.3.*",
+        "symfony/webpack-encore-bundle": "^1.12",
         "symfony/yaml": "5.3.*",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.1",
+        "phpstan/phpstan": "^0.12.67",
         "phpunit/phpunit": "^9.5",
+        "spatie/phpunit-watcher": "^1.23",
         "symfony/browser-kit": "^5.3",
         "symfony/css-selector": "^5.3",
         "symfony/debug-bundle": "^5.3",
         "symfony/maker-bundle": "^1.0",
         "symfony/phpunit-bridge": "^5.3",
         "symfony/stopwatch": "^5.3",
+        "symfony/var-dumper": "^5.2",
         "symfony/web-profiler-bundle": "^5.3"
     },
     "config": {
@@ -69,6 +75,11 @@
         "psr-4": {
             "App\\Tests\\": "tests/"
         }
+    },
+    "database": {
+        "doctrine:database:create": "bin/console doctrine:database:create  --if-not-exists",
+        "doctrine:schema:update": "bin/console doctrine:schema:update  --force",
+        "doctrine:fixtures:load": "bin/console doctrine:fixtures:load  -n"
     },
     "replace": {
         "symfony/polyfill-ctype": "*",

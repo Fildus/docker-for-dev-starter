@@ -1,0 +1,10 @@
+parameters:
+	level: 6
+	paths:
+		- src
+		- tests
+	excludePaths:
+	    - src/Infrastructure/Resources/skeleton
+	bootstrapFiles:
+	    - 'vendor/autoload.php'
+	checkGenericClassInNonGenericObjectType: false
